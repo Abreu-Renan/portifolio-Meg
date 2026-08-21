@@ -1,30 +1,98 @@
 # Mariana Chaluppe (Meg) | Portfolio
 
-Projeto de portfólio pessoal em React + TanStack Start, com foco em apresentação profissional, serviços e cases.
+Portfolio pessoal e profissional de Mariana Chaluppe, também conhecida como Meg, com foco em comunicação estratégica, jornalismo, produção de conteúdo e presença digital.
 
-## Desenvolvimento
+## Sobre o projeto
 
-Requisitos:
+Este projeto foi desenvolvido para apresentar:
 
-- Node.js
+- trajetória profissional
+- especialidades e competências
+- cases e projetos selecionados
+- contatos e canais de comunicação
+
+A interface foi pensada em um estilo editorial/brutalista, com visual moderno e forte identidade visual.
+
+## Stack utilizada
+
+- React
+- TypeScript
+- Vite
+- TanStack Start
+- TanStack Router
+- TanStack Query
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+
+## Requisitos
+
+- Node.js 18+
 - npm
 
-```sh
+## Instalação
+
+```bash
 npm install
-npm run dev
 ```
 
 ## Scripts
 
-- `npm run dev` — inicia o ambiente local de desenvolvimento
-- `npm run build` — gera a build de produção
-- `npm run preview` — visualiza a build localmente
-- `npm run lint` — valida o código com ESLint
+```bash
+npm run dev
+```
 
-## Stack
+Inicia o servidor de desenvolvimento local.
 
-- React
-- TypeScript
-- TanStack Start
-- Vite
-- Tailwind CSS
+```bash
+npm run build
+```
+
+Gera a build de produção.
+
+```bash
+npm run preview
+```
+
+Previsualiza a build localmente.
+
+```bash
+npm run lint
+```
+
+Executa a validação do código com ESLint.
+
+## Estrutura principal
+
+```text
+src/
+├── assets/
+├── components/
+├── hooks/
+├── lib/
+├── routes/
+├── router.tsx
+├── server.ts
+├── start.ts
+├── styles.css
+└── routeTree.gen.ts
+```
+
+## Como rodar localmente
+
+```bash
+npm install
+npm run dev -- --host 0.0.0.0
+```
+
+A aplicação fica disponível em:
+
+```text
+http://localhost:5173
+```
+
+## Observações
+
+- O projeto foi preparado para funcionar como portfolio pessoal em ambiente local e produção.
+- A identidade visual e o conteúdo podem ser adaptados facilmente para novas informações, casos e redes sociais.
+- O build foi validado e está funcionando corretamente.
