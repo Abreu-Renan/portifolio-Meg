@@ -16,6 +16,34 @@ import {
 import { useTheme } from "../lib/theme-provider";
 import megPhoto from "../assets/meg-photo.jpg";
 
+const navItems = ["INÍCIO", "SOBRE", "ESPECIALIDADES", "CASES", "CONTATO"];
+
+const specialtyCards = [
+  { title: "ANÁLISE DE MÍDIAS", bg: "bg-cream", icon: BarChart, color: "text-black" },
+  { title: "JORNALISMO", bg: "bg-lavender", icon: PenTool, color: "text-white" },
+  { title: "SOCIAL MEDIA", bg: "bg-white", icon: ThumbsUp, color: "text-black" },
+  {
+    title: "COMUNICAÇÃO CORPORATIVA",
+    bg: "bg-black",
+    icon: Megaphone,
+    color: "text-white",
+  },
+];
+
+const caseStudies = [
+  "Estratégia de Conteúdo",
+  "Comunicação Institucional",
+  "Gestão de Crise",
+  "Produção de Vídeos",
+  "Presença Digital",
+  "Marca e Posicionamento",
+];
+
+const socialLinks = [
+  { icon: Mail, href: "#contato", label: "E-mail" },
+  { icon: ThumbsUp, href: "#contato", label: "Contato" },
+];
+
 export const Route = createFileRoute("/")({
   head: () => ({
     title: "Mariana Chaluppe (Meg) | Portfolio",
@@ -192,17 +220,7 @@ function Index() {
           <div className="hidden h-0.5 flex-1 bg-black/10 mx-12 md:block" />
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            { title: "ANÁLISE DE MÍDIAS", bg: "bg-cream", icon: BarChart, color: "text-black" },
-            { title: "JORNALISMO", bg: "bg-lavender", icon: PenTool, color: "text-white" },
-            { title: "SOCIAL MEDIA", bg: "bg-white", icon: ThumbsUp, color: "text-black" },
-            {
-              title: "COMUNICAÇÃO CORPORATIVA",
-              bg: "bg-black",
-              icon: Megaphone,
-              color: "text-white",
-            },
-          ].map((item, i) => (
+          {specialtyCards.map((item, i) => (
             <motion.div
               key={i}
               whileHover={{ y: -8 }}
@@ -237,14 +255,7 @@ function Index() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            "Estratégia de Conteúdo",
-            "Comunicação Institucional",
-            "Gestão de Crise",
-            "Produção de Vídeos",
-            "Presença Digital",
-            "Marca e Posicionamento",
-          ].map((title, i) => (
+          {caseStudies.map((title, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
@@ -284,10 +295,11 @@ function Index() {
               </p>
 
               <div className="mt-12 flex gap-4">
-                {[Mail, ThumbsUp].map((Icon, i) => (
+                {socialLinks.map(({ icon: Icon, href, label }, i) => (
                   <motion.a
-                    key={i}
-                    href="#contato"
+                    key={label}
+                    href={href}
+                    aria-label={label}
                     whileHover={{ y: -4, scale: 1.1 }}
                     className="flex h-14 w-14 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist transition-colors hover:bg-black"
                   >

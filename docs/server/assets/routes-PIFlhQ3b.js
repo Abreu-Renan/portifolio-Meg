@@ -6,6 +6,49 @@ import { BarChart, Bell, ChevronRight, Mail, Megaphone, Moon, PenTool, Plus, Sta
 var meg_photo_default = "./assets/meg-photo-DXoKjgGX.jpg";
 //#endregion
 //#region src/routes/index.tsx?tsr-split=component
+var specialtyCards = [
+	{
+		title: "ANÁLISE DE MÍDIAS",
+		bg: "bg-cream",
+		icon: BarChart,
+		color: "text-black"
+	},
+	{
+		title: "JORNALISMO",
+		bg: "bg-lavender",
+		icon: PenTool,
+		color: "text-white"
+	},
+	{
+		title: "SOCIAL MEDIA",
+		bg: "bg-white",
+		icon: ThumbsUp,
+		color: "text-black"
+	},
+	{
+		title: "COMUNICAÇÃO CORPORATIVA",
+		bg: "bg-black",
+		icon: Megaphone,
+		color: "text-white"
+	}
+];
+var caseStudies = [
+	"Estratégia de Conteúdo",
+	"Comunicação Institucional",
+	"Gestão de Crise",
+	"Produção de Vídeos",
+	"Presença Digital",
+	"Marca e Posicionamento"
+];
+var socialLinks = [{
+	icon: Mail,
+	href: "#contato",
+	label: "E-mail"
+}, {
+	icon: ThumbsUp,
+	href: "#contato",
+	label: "Contato"
+}];
 function Index() {
 	const { theme, toggleTheme } = useTheme();
 	return /* @__PURE__ */ jsxs("div", {
@@ -216,32 +259,7 @@ function Index() {
 					}), /* @__PURE__ */ jsx("div", { className: "hidden h-0.5 flex-1 bg-black/10 mx-12 md:block" })]
 				}), /* @__PURE__ */ jsx("div", {
 					className: "grid gap-6 md:grid-cols-2 lg:grid-cols-4",
-					children: [
-						{
-							title: "ANÁLISE DE MÍDIAS",
-							bg: "bg-cream",
-							icon: BarChart,
-							color: "text-black"
-						},
-						{
-							title: "JORNALISMO",
-							bg: "bg-lavender",
-							icon: PenTool,
-							color: "text-white"
-						},
-						{
-							title: "SOCIAL MEDIA",
-							bg: "bg-white",
-							icon: ThumbsUp,
-							color: "text-black"
-						},
-						{
-							title: "COMUNICAÇÃO CORPORATIVA",
-							bg: "bg-black",
-							icon: Megaphone,
-							color: "text-white"
-						}
-					].map((item, i) => /* @__PURE__ */ jsxs(motion.div, {
+					children: specialtyCards.map((item, i) => /* @__PURE__ */ jsxs(motion.div, {
 						whileHover: { y: -8 },
 						className: `group relative border-2 border-black p-8 shadow-brutalist transition-all hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${item.bg} ${item.color}`,
 						children: [
@@ -281,14 +299,7 @@ function Index() {
 					})]
 				}), /* @__PURE__ */ jsx("div", {
 					className: "grid gap-8 md:grid-cols-2 lg:grid-cols-3",
-					children: [
-						"Estratégia de Conteúdo",
-						"Comunicação Institucional",
-						"Gestão de Crise",
-						"Produção de Vídeos",
-						"Presença Digital",
-						"Marca e Posicionamento"
-					].map((title, i) => /* @__PURE__ */ jsxs(motion.div, {
+					children: caseStudies.map((title, i) => /* @__PURE__ */ jsxs(motion.div, {
 						initial: {
 							opacity: 0,
 							y: 20
@@ -334,15 +345,16 @@ function Index() {
 							}),
 							/* @__PURE__ */ jsx("div", {
 								className: "mt-12 flex gap-4",
-								children: [Mail, ThumbsUp].map((Icon, i) => /* @__PURE__ */ jsx(motion.a, {
-									href: "#contato",
+								children: socialLinks.map(({ icon: Icon, href, label }, i) => /* @__PURE__ */ jsx(motion.a, {
+									href,
+									"aria-label": label,
 									whileHover: {
 										y: -4,
 										scale: 1.1
 									},
 									className: "flex h-14 w-14 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist transition-colors hover:bg-black",
 									children: /* @__PURE__ */ jsx(Icon, { size: 24 })
-								}, i))
+								}, label))
 							})
 						] }), /* @__PURE__ */ jsx("div", {
 							className: "border-2 border-black bg-cream p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]",

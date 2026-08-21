@@ -97,7 +97,7 @@ function renderErrorPage() {
 //#region src/server.ts
 var serverEntryPromise;
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = import("./assets/server-O2mo5QVc.js").then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = import("./assets/server-CbN5Z0E1.js").then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

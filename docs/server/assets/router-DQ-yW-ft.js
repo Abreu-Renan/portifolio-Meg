@@ -134,7 +134,7 @@ function RootComponent() {
 }
 //#endregion
 //#region src/routes/index.tsx
-var $$splitComponentImporter = () => import("./routes-D79HY7sQ.js");
+var $$splitComponentImporter = () => import("./routes-PIFlhQ3b.js");
 //#endregion
 //#region src/routeTree.gen.ts
 var rootRouteChildren = { IndexRoute: createFileRoute("/")({
