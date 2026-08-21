@@ -91,6 +91,27 @@ A aplicação fica disponível em:
 http://localhost:5173
 ```
 
+## GitHub Pages
+
+Este projeto já foi configurado para geração de build em pasta pública do GitHub Pages.
+
+### Build para Pages
+
+```bash
+npm run build:pages
+```
+
+A saída será gerada em `docs/` e pode ser usada como origem do GitHub Pages.
+
+### Configuração no GitHub
+
+1. Vá em Settings > Pages
+2. Em "Source", selecione a branch principal
+3. Escolha a pasta `/docs`
+4. Salve
+
+> O projeto usa `base: "./"` para garantir que os assets funcionem corretamente em subpastas e em páginas do GitHub Pages.
+
 ## Observações
 
 - O projeto foi preparado para funcionar como portfolio pessoal em ambiente local e produção.

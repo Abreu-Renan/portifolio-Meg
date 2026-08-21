@@ -1,0 +1,424 @@
+import { n as useTheme } from "./theme-provider-NTFhHyoB.js";
+import { jsx, jsxs } from "react/jsx-runtime";
+import { motion } from "framer-motion";
+import { BarChart, Bell, ChevronRight, Mail, Megaphone, Moon, PenTool, Plus, Star, Sun, ThumbsUp } from "lucide-react";
+//#region src/assets/meg-photo.jpg
+var meg_photo_default = "./assets/meg-photo-DXoKjgGX.jpg";
+//#endregion
+//#region src/routes/index.tsx?tsr-split=component
+function Index() {
+	const { theme, toggleTheme } = useTheme();
+	return /* @__PURE__ */ jsxs("div", {
+		className: "min-h-screen bg-background font-sans text-foreground selection:bg-lavender/30 selection:text-foreground",
+		children: [
+			/* @__PURE__ */ jsxs("header", {
+				className: "sticky top-0 z-50 flex flex-wrap items-center justify-between gap-3 border-b-2 border-border bg-background/80 px-4 py-3 backdrop-blur-md sm:px-6 md:px-12",
+				children: [/* @__PURE__ */ jsxs("div", {
+					className: "flex items-center gap-3 sm:gap-4",
+					children: [
+						/* @__PURE__ */ jsx("button", {
+							onClick: toggleTheme,
+							className: "rounded-full p-2 transition-colors hover:bg-accent",
+							"aria-label": "Alternar tema",
+							children: theme === "light" ? /* @__PURE__ */ jsx(Moon, { size: 20 }) : /* @__PURE__ */ jsx(Sun, { size: 20 })
+						}),
+						/* @__PURE__ */ jsx(motion.div, {
+							whileHover: { scale: 1.05 },
+							className: "flex h-11 w-11 items-center justify-center rounded-full border-2 border-border bg-lavender font-black text-white shadow-brutalist sm:h-12 sm:w-12",
+							children: "MC"
+						}),
+						/* @__PURE__ */ jsxs("div", {
+							className: "flex flex-col",
+							children: [/* @__PURE__ */ jsx("span", {
+								className: "text-xs font-black uppercase tracking-tight sm:text-sm",
+								children: "@megchaluppe"
+							}), /* @__PURE__ */ jsx("span", {
+								className: "text-[9px] font-black uppercase tracking-[0.18em] text-muted-foreground leading-none sm:text-[10px]",
+								children: "PORTFÓLIO"
+							})]
+						})
+					]
+				}), /* @__PURE__ */ jsx("nav", {
+					className: "hidden gap-6 text-[10px] font-black uppercase tracking-widest md:flex lg:gap-8",
+					children: [
+						"INÍCIO",
+						"SOBRE",
+						"ESPECIALIDADES",
+						"CASES",
+						"CONTATO"
+					].map((link) => /* @__PURE__ */ jsxs("a", {
+						href: `#${link.toLowerCase()}`,
+						className: "relative transition-colors hover:text-lavender group",
+						children: [link, /* @__PURE__ */ jsx("span", { className: "absolute -bottom-1 left-0 h-0.5 w-0 scale-x-0 bg-lavender transition-transform duration-300 group-hover:w-full group-hover:scale-x-100" })]
+					}, link))
+				})]
+			}),
+			/* @__PURE__ */ jsxs("section", {
+				id: "início",
+				className: "relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-8 md:px-24 md:py-20",
+				children: [/* @__PURE__ */ jsxs("div", {
+					className: "relative z-10 flex flex-col items-center gap-8 md:gap-12",
+					children: [
+						/* @__PURE__ */ jsx(motion.div, {
+							animate: {
+								y: [
+									0,
+									-20,
+									0
+								],
+								rotate: [
+									0,
+									10,
+									0
+								]
+							},
+							transition: {
+								repeat: Infinity,
+								duration: 5,
+								ease: "easeInOut"
+							},
+							className: "absolute -top-20 -left-20 hidden md:block",
+							children: /* @__PURE__ */ jsx(Star, {
+								size: 64,
+								className: "text-lavender fill-lavender/20"
+							})
+						}),
+						/* @__PURE__ */ jsx(motion.div, {
+							animate: {
+								y: [
+									0,
+									20,
+									0
+								],
+								rotate: [
+									0,
+									-10,
+									0
+								]
+							},
+							transition: {
+								repeat: Infinity,
+								duration: 6,
+								ease: "easeInOut"
+							},
+							className: "absolute -top-20 -right-20 hidden md:block",
+							children: /* @__PURE__ */ jsx(Plus, {
+								size: 64,
+								className: "text-black/10"
+							})
+						}),
+						/* @__PURE__ */ jsxs("div", {
+							className: "group relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px]",
+							children: [/* @__PURE__ */ jsx(motion.div, {
+								initial: {
+									opacity: 0,
+									y: 20
+								},
+								whileInView: {
+									opacity: 1,
+									y: 0
+								},
+								viewport: { once: true },
+								className: "relative z-10 overflow-hidden border-2 border-black bg-cream shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-500 group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+								children: /* @__PURE__ */ jsx("img", {
+									src: meg_photo_default,
+									alt: "Mariana (Meg) Chaluppe",
+									className: "block h-auto w-full grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+								})
+							}), /* @__PURE__ */ jsx("div", {
+								className: "absolute -bottom-4 -right-4 z-20 hidden h-16 w-16 items-center justify-center rounded-full border-2 border-black bg-lavender text-white shadow-brutalist md:flex md:h-20 md:w-20",
+								children: /* @__PURE__ */ jsx(Bell, {
+									size: 28,
+									className: "md:size-8"
+								})
+							})]
+						}),
+						/* @__PURE__ */ jsxs("div", {
+							className: "flex flex-col items-center text-center",
+							children: [/* @__PURE__ */ jsx(motion.div, {
+								initial: {
+									opacity: 0,
+									scale: .9
+								},
+								whileInView: {
+									opacity: 1,
+									scale: 1
+								},
+								viewport: { once: true },
+								className: "inline-block border-2 border-black bg-lavender px-4 py-3 shadow-brutalist sm:px-6 sm:py-4 md:px-8",
+								children: /* @__PURE__ */ jsx("h1", {
+									className: "text-2xl font-black uppercase leading-tight text-white sm:text-4xl md:text-6xl lg:text-7xl",
+									children: "Mariana Chaluppe (Meg)"
+								})
+							}), /* @__PURE__ */ jsx(motion.p, {
+								initial: { opacity: 0 },
+								whileInView: { opacity: 1 },
+								transition: { delay: .2 },
+								viewport: { once: true },
+								className: "mt-6 max-w-2xl text-[10px] font-black uppercase tracking-[0.18em] text-black/60 sm:text-xs md:mt-8 md:text-sm",
+								children: "Comunicação Estratégica • Jornalismo • Conteúdo • Marca"
+							})]
+						})
+					]
+				}), /* @__PURE__ */ jsx("div", {
+					className: "absolute inset-0 -z-0 opacity-[0.03] pointer-events-none",
+					style: {
+						backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
+						backgroundSize: "32px 32px"
+					}
+				})]
+			}),
+			/* @__PURE__ */ jsx("section", {
+				id: "sobre",
+				className: "bg-cream/30 px-8 py-24 md:px-24",
+				children: /* @__PURE__ */ jsx("div", {
+					className: "mx-auto max-w-5xl",
+					children: /* @__PURE__ */ jsxs("div", {
+						className: "relative border-2 border-black bg-white p-12 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]",
+						children: [/* @__PURE__ */ jsx("div", {
+							className: "absolute -top-6 -left-6 border-2 border-black bg-lavender px-6 py-2 text-xl font-black text-white shadow-brutalist",
+							children: "SOBRE A MEG"
+						}), /* @__PURE__ */ jsxs("div", {
+							className: "mt-8 grid gap-12 md:grid-cols-[1fr_2fr]",
+							children: [/* @__PURE__ */ jsxs("div", {
+								className: "flex flex-col gap-4",
+								children: [/* @__PURE__ */ jsx("div", { className: "h-2 w-20 bg-lavender" }), /* @__PURE__ */ jsx("h3", {
+									className: "text-3xl font-black leading-tight uppercase",
+									children: "Comunicação que conecta pessoas, marcas e ideias."
+								})]
+							}), /* @__PURE__ */ jsx("div", {
+								className: "text-xl font-medium leading-relaxed text-black/80",
+								children: /* @__PURE__ */ jsxs("p", {
+									className: "whitespace-pre-line",
+									children: [
+										"Olá, sou a Mariana, mas pode me chamar de Meg.",
+										"\n\n",
+										"Bacharel em Comunicação Social com foco em Jornalismo, com mais de 15 anos de experiência em assessoria de imprensa, comunicação e produção de conteúdo.",
+										"\n\n",
+										"Trabalho com estratégia de presença digital, narrativa de marca, posicionamento editorial e relacionamento com a imprensa, sempre com olhar crítico, estratégico e humano.",
+										"\n\n",
+										"Também estudo Marketing Digital e Storytelling para fortalecer conteúdos que geram conexão, relevância e resultados."
+									]
+								})
+							})]
+						})]
+					})
+				})
+			}),
+			/* @__PURE__ */ jsxs("section", {
+				id: "especialidades",
+				className: "px-8 py-24 md:px-24",
+				children: [/* @__PURE__ */ jsxs("div", {
+					className: "mb-16 flex items-center justify-between",
+					children: [/* @__PURE__ */ jsx("h2", {
+						className: "text-4xl font-black uppercase tracking-tighter md:text-6xl",
+						children: "Especialidades"
+					}), /* @__PURE__ */ jsx("div", { className: "hidden h-0.5 flex-1 bg-black/10 mx-12 md:block" })]
+				}), /* @__PURE__ */ jsx("div", {
+					className: "grid gap-6 md:grid-cols-2 lg:grid-cols-4",
+					children: [
+						{
+							title: "ANÁLISE DE MÍDIAS",
+							bg: "bg-cream",
+							icon: BarChart,
+							color: "text-black"
+						},
+						{
+							title: "JORNALISMO",
+							bg: "bg-lavender",
+							icon: PenTool,
+							color: "text-white"
+						},
+						{
+							title: "SOCIAL MEDIA",
+							bg: "bg-white",
+							icon: ThumbsUp,
+							color: "text-black"
+						},
+						{
+							title: "COMUNICAÇÃO CORPORATIVA",
+							bg: "bg-black",
+							icon: Megaphone,
+							color: "text-white"
+						}
+					].map((item, i) => /* @__PURE__ */ jsxs(motion.div, {
+						whileHover: { y: -8 },
+						className: `group relative border-2 border-black p-8 shadow-brutalist transition-all hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${item.bg} ${item.color}`,
+						children: [
+							/* @__PURE__ */ jsx(item.icon, {
+								size: 48,
+								className: "mb-6 transition-transform group-hover:scale-110"
+							}),
+							/* @__PURE__ */ jsx("h3", {
+								className: "text-lg font-black leading-tight uppercase tracking-tight",
+								children: item.title
+							}),
+							/* @__PURE__ */ jsxs("div", {
+								className: "mt-4 flex items-center text-xs font-black uppercase opacity-0 transition-opacity group-hover:opacity-100",
+								children: ["Ver mais ", /* @__PURE__ */ jsx(ChevronRight, {
+									size: 14,
+									className: "ml-1"
+								})]
+							})
+						]
+					}, i))
+				})]
+			}),
+			/* @__PURE__ */ jsxs("section", {
+				id: "cases",
+				className: "bg-black px-8 py-24 text-white md:px-24",
+				children: [/* @__PURE__ */ jsxs("div", {
+					className: "mb-16 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between",
+					children: [/* @__PURE__ */ jsxs("div", { children: [/* @__PURE__ */ jsx("span", {
+						className: "text-xs font-black uppercase tracking-[0.4em] text-lavender",
+						children: "Trabalhos Recentes"
+					}), /* @__PURE__ */ jsx("h2", {
+						className: "mt-2 text-4xl font-black uppercase tracking-tighter md:text-6xl",
+						children: "Cases que marcaram a trajetória"
+					})] }), /* @__PURE__ */ jsx("p", {
+						className: "max-w-xs text-sm font-medium text-white/60",
+						children: "Estratégias de comunicação, conteúdo e relacionamento que ajudam marcas a ganharem presença e relevância."
+					})]
+				}), /* @__PURE__ */ jsx("div", {
+					className: "grid gap-8 md:grid-cols-2 lg:grid-cols-3",
+					children: [
+						"Estratégia de Conteúdo",
+						"Comunicação Institucional",
+						"Gestão de Crise",
+						"Produção de Vídeos",
+						"Presença Digital",
+						"Marca e Posicionamento"
+					].map((title, i) => /* @__PURE__ */ jsxs(motion.div, {
+						initial: {
+							opacity: 0,
+							y: 20
+						},
+						whileInView: {
+							opacity: 1,
+							y: 0
+						},
+						viewport: { once: true },
+						transition: { delay: i * .1 },
+						className: "group border-2 border-white/20 bg-white/5 transition-colors hover:border-lavender",
+						children: [/* @__PURE__ */ jsxs("div", {
+							className: "relative aspect-video overflow-hidden",
+							children: [/* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" }), /* @__PURE__ */ jsx("div", { className: "absolute inset-0 bg-black/40 mix-blend-multiply transition-opacity group-hover:opacity-20" })]
+						}), /* @__PURE__ */ jsxs("div", {
+							className: "p-6",
+							children: [/* @__PURE__ */ jsx("span", {
+								className: "inline-block bg-lavender px-3 py-1 text-[10px] font-black text-white mb-4 uppercase tracking-widest",
+								children: title
+							}), /* @__PURE__ */ jsx("p", {
+								className: "text-sm font-medium leading-relaxed text-white/70",
+								children: "Soluções de comunicação com foco em narrativa, clareza, visibilidade e conexão com o público certo."
+							})]
+						})]
+					}, i))
+				})]
+			}),
+			/* @__PURE__ */ jsx("section", {
+				id: "contato",
+				className: "px-8 py-24 md:px-24",
+				children: /* @__PURE__ */ jsx("div", {
+					className: "mx-auto max-w-4xl",
+					children: /* @__PURE__ */ jsxs("div", {
+						className: "grid gap-16 md:grid-cols-2",
+						children: [/* @__PURE__ */ jsxs("div", { children: [
+							/* @__PURE__ */ jsx("h2", {
+								className: "text-4xl font-black uppercase tracking-tighter md:text-6xl",
+								children: "Vamos criar algo com impacto?"
+							}),
+							/* @__PURE__ */ jsx("p", {
+								className: "mt-6 text-lg font-medium text-black/60",
+								children: "Estou aberta a novos projetos, colaborações, palestras e consultorias em comunicação estratégica."
+							}),
+							/* @__PURE__ */ jsx("div", {
+								className: "mt-12 flex gap-4",
+								children: [Mail, ThumbsUp].map((Icon, i) => /* @__PURE__ */ jsx(motion.a, {
+									href: "#contato",
+									whileHover: {
+										y: -4,
+										scale: 1.1
+									},
+									className: "flex h-14 w-14 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist transition-colors hover:bg-black",
+									children: /* @__PURE__ */ jsx(Icon, { size: 24 })
+								}, i))
+							})
+						] }), /* @__PURE__ */ jsx("div", {
+							className: "border-2 border-black bg-cream p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]",
+							children: /* @__PURE__ */ jsxs("form", {
+								className: "flex flex-col gap-6",
+								children: [
+									/* @__PURE__ */ jsxs("div", {
+										className: "group relative",
+										children: [/* @__PURE__ */ jsx("input", {
+											placeholder: "Seu nome",
+											className: "w-full border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
+										}), /* @__PURE__ */ jsx("div", { className: "absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" })]
+									}),
+									/* @__PURE__ */ jsxs("div", {
+										className: "group relative",
+										children: [/* @__PURE__ */ jsx("input", {
+											placeholder: "Seu e-mail",
+											className: "w-full border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
+										}), /* @__PURE__ */ jsx("div", { className: "absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" })]
+									}),
+									/* @__PURE__ */ jsxs("div", {
+										className: "group relative",
+										children: [/* @__PURE__ */ jsx("textarea", {
+											placeholder: "Como posso ajudar?",
+											className: "h-32 w-full resize-none border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
+										}), /* @__PURE__ */ jsx("div", { className: "absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" })]
+									}),
+									/* @__PURE__ */ jsx(motion.button, {
+										whileTap: { scale: .98 },
+										className: "mt-4 border-2 border-black bg-black py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-brutalist transition-all hover:bg-lavender hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]",
+										children: "Enviar mensagem"
+									})
+								]
+							})
+						})]
+					})
+				})
+			}),
+			/* @__PURE__ */ jsx("footer", {
+				className: "border-t-2 border-black bg-white px-8 py-12 md:px-24",
+				children: /* @__PURE__ */ jsxs("div", {
+					className: "flex flex-col items-center justify-between gap-8 md:flex-row",
+					children: [
+						/* @__PURE__ */ jsxs("div", {
+							className: "flex items-center gap-4",
+							children: [/* @__PURE__ */ jsx("div", {
+								className: "flex h-10 w-10 items-center justify-center rounded-full border-2 border-black bg-lavender font-black text-white",
+								children: "MC"
+							}), /* @__PURE__ */ jsx("span", {
+								className: "text-xs font-black uppercase tracking-widest",
+								children: "Mariana Chaluppe"
+							})]
+						}),
+						/* @__PURE__ */ jsx("div", {
+							className: "flex gap-2",
+							children: [
+								1,
+								2,
+								3
+							].map((i) => /* @__PURE__ */ jsx(Star, {
+								size: 16,
+								className: "text-lavender fill-lavender"
+							}, i))
+						}),
+						/* @__PURE__ */ jsx("div", {
+							className: "text-center md:text-right",
+							children: /* @__PURE__ */ jsx("p", {
+								className: "text-[10px] font-black uppercase tracking-widest text-black/40",
+								children: "© 2026 • Mariana Chaluppe • Comunicação Estratégica"
+							})
+						})
+					]
+				})
+			})
+		]
+	});
+}
+//#endregion
+export { Index as component };
