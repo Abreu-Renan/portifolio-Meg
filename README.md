@@ -1,29 +1,30 @@
-# Welcome to your Lovable project
+# Mariana Chaluppe (Meg) | Portfolio
 
-This project was built with [Lovable](https://lovable.dev).
+Projeto de portfólio pessoal em React + TanStack Start, com foco em apresentação profissional, serviços e cases.
 
-## Build with Lovable
+## Desenvolvimento
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Requisitos:
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+- Node.js
+- npm
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
 
-## Built with
+## Scripts
 
-- TanStack Start
-- TypeScript
+- `npm run dev` — inicia o ambiente local de desenvolvimento
+- `npm run build` — gera a build de produção
+- `npm run preview` — visualiza a build localmente
+- `npm run lint` — valida o código com ESLint
+
+## Stack
+
 - React
+- TypeScript
+- TanStack Start
+- Vite
 - Tailwind CSS

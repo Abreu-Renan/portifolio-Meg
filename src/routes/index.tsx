@@ -42,7 +42,6 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-lavender/30 selection:text-foreground">
-      {/* Header */}
       <header className="sticky top-0 z-50 flex flex-wrap items-center justify-between gap-3 border-b-2 border-border bg-background/80 px-4 py-3 backdrop-blur-md sm:px-6 md:px-12">
         <div className="flex items-center gap-3 sm:gap-4">
           <button
@@ -81,7 +80,6 @@ function Index() {
         </nav>
       </header>
 
-      {/* Hero Section */}
       <section
         id="início"
         className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-8 md:px-24 md:py-20"
@@ -139,7 +137,7 @@ function Index() {
               viewport={{ once: true }}
               className="mt-6 max-w-2xl text-[10px] font-black uppercase tracking-[0.18em] text-black/60 sm:text-xs md:mt-8 md:text-sm"
             >
-              Media Analyst • Journalist • Social Media • Corporate Communication
+              Comunicação Estratégica • Jornalismo • Conteúdo • Marca
             </motion.p>
           </div>
         </div>
@@ -154,7 +152,6 @@ function Index() {
         />
       </section>
 
-      {/* About Section */}
       <section id="sobre" className="bg-cream/30 px-8 py-24 md:px-24">
         <div className="mx-auto max-w-5xl">
           <div className="relative border-2 border-black bg-white p-12 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
@@ -165,28 +162,28 @@ function Index() {
               <div className="flex flex-col gap-4">
                 <div className="h-2 w-20 bg-lavender" />
                 <h3 className="text-3xl font-black leading-tight uppercase">
-                  Transformando comunicação em conexão.
+                  Comunicação que conecta pessoas, marcas e ideias.
                 </h3>
               </div>
               <div className="text-xl font-medium leading-relaxed text-black/80">
                 <p className="whitespace-pre-line">
-                  Olá, eu sou a Mariana, mas pode me chamar de Meg!
+                  Olá, sou a Mariana, mas pode me chamar de Meg.
                   {"\n\n"}
-                  Bacharel em Comunicação Social - Jornalismo
+                  Bacharel em Comunicação Social com foco em Jornalismo, com mais de 15 anos de
+                  experiência em assessoria de imprensa, comunicação e produção de conteúdo.
                   {"\n\n"}
-                  Atuo há mais de 15 anos com Assessoria de Imprensa
+                  Trabalho com estratégia de presença digital, narrativa de marca, posicionamento
+                  editorial e relacionamento com a imprensa, sempre com olhar crítico, estratégico e
+                  humano.
                   {"\n\n"}
-                  Foco na criação de conteúdo para redes sociais
-                  {"\n\n"}
-                  Cursando pós-graduação em Marketing Digital e Storytelling
+                  Também estudo Marketing Digital e Storytelling para fortalecer conteúdos que geram
+                  conexão, relevância e resultados.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Specialties */}
       <section id="especialidades" className="px-8 py-24 md:px-24">
         <div className="mb-16 flex items-center justify-between">
           <h2 className="text-4xl font-black uppercase tracking-tighter md:text-6xl">
@@ -223,7 +220,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Cases Section */}
       <section id="cases" className="bg-black px-8 py-24 text-white md:px-24">
         <div className="mb-16 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
           <div>
@@ -231,22 +227,23 @@ function Index() {
               Trabalhos Recentes
             </span>
             <h2 className="mt-2 text-4xl font-black uppercase tracking-tighter md:text-6xl">
-              Cases de Sucesso
+              Cases que marcaram a trajetória
             </h2>
           </div>
           <p className="max-w-xs text-sm font-medium text-white/60">
-            Uma seleção de projetos que definem minha trajetória profissional.
+            Estratégias de comunicação, conteúdo e relacionamento que ajudam marcas a ganharem
+            presença e relevância.
           </p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {[
-            "PROJEETO PREVETE1",
-            "PROJECTO PARALIEMADA",
-            "PROJETTO COMUNATIVA",
-            "PROJESTO DE MIDIAS",
-            "PROJETOR CONFITENCIA",
-            "PROJETTO CORPORATIA",
+            "Estratégia de Conteúdo",
+            "Comunicação Institucional",
+            "Gestão de Crise",
+            "Produção de Vídeos",
+            "Presença Digital",
+            "Marca e Posicionamento",
           ].map((title, i) => (
             <motion.div
               key={i}
@@ -265,8 +262,8 @@ function Index() {
                   {title}
                 </span>
                 <p className="text-sm font-medium leading-relaxed text-white/70">
-                  Estratégias de conteúdo e gestão de crise para marcas de grande impacto no cenário
-                  nacional.
+                  Soluções de comunicação com foco em narrativa, clareza, visibilidade e conexão com
+                  o público certo.
                 </p>
               </div>
             </motion.div>
@@ -274,25 +271,25 @@ function Index() {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section id="contato" className="px-8 py-24 md:px-24">
         <div className="mx-auto max-w-4xl">
           <div className="grid gap-16 md:grid-cols-2">
             <div>
               <h2 className="text-4xl font-black uppercase tracking-tighter md:text-6xl">
-                Vamos conversar?
+                Vamos criar algo com impacto?
               </h2>
               <p className="mt-6 text-lg font-medium text-black/60">
-                Disponível para novos projetos, palestras e consultorias em comunicação corporativa.
+                Estou aberta a novos projetos, colaborações, palestras e consultorias em comunicação
+                estratégica.
               </p>
 
               <div className="mt-12 flex gap-4">
                 {[Mail, ThumbsUp].map((Icon, i) => (
                   <motion.a
                     key={i}
-                    href="#"
+                    href="#contato"
                     whileHover={{ y: -4, scale: 1.1 }}
-                    className="flex h-14 w-14 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist hover:bg-black transition-colors"
+                    className="flex h-14 w-14 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist transition-colors hover:bg-black"
                   >
                     <Icon size={24} />
                   </motion.a>
@@ -304,14 +301,14 @@ function Index() {
               <form className="flex flex-col gap-6">
                 <div className="group relative">
                   <input
-                    placeholder="Seu Nome"
+                    placeholder="Seu nome"
                     className="w-full border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
                   />
                   <div className="absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" />
                 </div>
                 <div className="group relative">
                   <input
-                    placeholder="Seu Email"
+                    placeholder="Seu e-mail"
                     className="w-full border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
                   />
                   <div className="absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" />
@@ -319,7 +316,7 @@ function Index() {
                 <div className="group relative">
                   <textarea
                     placeholder="Como posso ajudar?"
-                    className="h-32 w-full border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30 resize-none"
+                    className="h-32 w-full resize-none border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
                   />
                   <div className="absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" />
                 </div>
@@ -327,7 +324,7 @@ function Index() {
                   whileTap={{ scale: 0.98 }}
                   className="mt-4 border-2 border-black bg-black py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-brutalist transition-all hover:bg-lavender hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
                 >
-                  ENVIAR MENSAGEM
+                  Enviar mensagem
                 </motion.button>
               </form>
             </div>
@@ -335,14 +332,13 @@ function Index() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t-2 border-black bg-white px-8 py-12 md:px-24">
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           <div className="flex items-center gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-black bg-lavender font-black text-white">
               MC
             </div>
-            <span className="text-xs font-black uppercase tracking-widest">Meg Chaluppe</span>
+            <span className="text-xs font-black uppercase tracking-widest">Mariana Chaluppe</span>
           </div>
 
           <div className="flex gap-2">
@@ -353,7 +349,7 @@ function Index() {
 
           <div className="text-center md:text-right">
             <p className="text-[10px] font-black uppercase tracking-widest text-black/40">
-              © 2026 • Design by Meg • All Rights Reserved
+              © 2026 • Mariana Chaluppe • Comunicação Estratégica
             </p>
           </div>
         </div>
