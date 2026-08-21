@@ -6,10 +6,8 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "build:pages": "node -e \"process.env.GITHUB_PAGES='true'; require('child_process').spawnSync('npx', ['vite', 'build', '--base=./'], { stdio: 'inherit', shell: true });\"",
     "build:dev": "vite build --mode development",
     "preview": "vite preview --host 0.0.0.0",
-    "preview:pages": "vite preview --host 0.0.0.0 --outDir docs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

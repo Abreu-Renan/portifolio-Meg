@@ -91,26 +91,29 @@ A aplicação fica disponível em:
 http://localhost:5173
 ```
 
-## GitHub Pages
+## Deploy no Vercel
 
-Este projeto já foi configurado para geração de build em pasta pública do GitHub Pages.
+Este projeto está configurado para deploy no Vercel como aplicação SSR com TanStack Start + Nitro.
 
-### Build para Pages
+### Build de produção
 
 ```bash
-npm run build:pages
+npm run build
 ```
 
-A saída será gerada em `docs/` e pode ser usada como origem do GitHub Pages.
+### Preview local
 
-### Configuração no GitHub
+```bash
+npm run preview
+```
 
-1. Vá em Settings > Pages
-2. Em "Source", selecione a branch principal
-3. Escolha a pasta `/docs`
-4. Salve
+### Publicação no Vercel
 
-> O projeto usa `base: "./"` para garantir que os assets funcionem corretamente em subpastas e em páginas do GitHub Pages.
+1. Conecte o repositório ao Vercel.
+2. Use a configuração padrão do framework Vite/React.
+3. Faça o deploy da branch principal.
+
+> A configuração do projeto foi ajustada para evitar conflitos com deploys de páginas estáticas e manter a compatibilidade com o Vercel.
 
 ## Observações
 
