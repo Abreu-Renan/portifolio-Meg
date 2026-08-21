@@ -139,7 +139,7 @@ function Index() {
               <img
                 src={megPhoto}
                 alt="Mariana (Meg) Chaluppe"
-                className="block h-auto w-full grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                className="block h-auto w-full transition-all duration-700 group-hover:scale-105"
               />
             </motion.div>
             <div className="absolute -bottom-4 -right-4 z-20 hidden h-16 w-16 items-center justify-center rounded-full border-2 border-black bg-lavender text-white shadow-brutalist md:flex md:h-20 md:w-20">
