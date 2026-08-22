@@ -148,33 +148,104 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
+    font-size: 16px;
   }
 
   body {
-    background-color: var(--color-background);
+    background:
+      radial-gradient(circle at top, rgba(197, 120, 211, 0.12), transparent 28%),
+      linear-gradient(
+        180deg,
+        rgba(243, 232, 220, 0.45) 0%,
+        rgba(255, 255, 255, 1) 18%,
+        rgba(255, 255, 255, 1) 100%
+      );
     color: var(--color-foreground);
     min-height: 100vh;
+    overflow-x: hidden;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-family: Inter, "Segoe UI", sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  #root {
+    min-height: 100vh;
   }
 
   img {
     display: block;
     max-width: 100%;
+    height: auto;
+  }
+
+  a,
+  button,
+  input,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
-@media (max-width: 640px) {
+@layer utilities {
+  .premium-shell {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .premium-panel {
+    box-shadow: 0 22px 50px rgba(17, 17, 17, 0.08);
+  }
+
+  .premium-card {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+    box-shadow: 0 18px 30px rgba(17, 17, 17, 0.08);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease;
+  }
+
+  .premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 34px rgba(17, 17, 17, 0.12);
+  }
+
+  .premium-label {
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 768px) {
   html {
     font-size: 15px;
   }
 
   body {
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
     overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(197, 120, 211, 0.25);
   }
 }

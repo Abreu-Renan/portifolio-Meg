@@ -1,34 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import {
-  BarChart,
-  PenTool,
-  ThumbsUp,
-  Megaphone,
-  Mail,
-  ChevronRight,
-  Star,
-  Bell,
-  Plus,
-  Moon,
-  Sun,
-} from "lucide-react";
+import { Mail, ChevronRight, Star, Bell, Plus, Moon, Sun, Menu, X, ThumbsUp } from "lucide-react";
+import { useState } from "react";
 import { useTheme } from "../lib/theme-provider";
 import megPhoto from "../assets/meg-photo.jpg";
+import { specialtyCards } from "../data/specialties";
 
 const navItems = ["INÍCIO", "SOBRE", "ESPECIALIDADES", "CASES", "CONTATO"];
-
-const specialtyCards = [
-  { title: "ANÁLISE DE MÍDIAS", bg: "bg-cream", icon: BarChart, color: "text-black" },
-  { title: "JORNALISMO", bg: "bg-lavender", icon: PenTool, color: "text-white" },
-  { title: "SOCIAL MEDIA", bg: "bg-white", icon: ThumbsUp, color: "text-black" },
-  {
-    title: "COMUNICAÇÃO CORPORATIVA",
-    bg: "bg-black",
-    icon: Megaphone,
-    color: "text-white",
-  },
-];
 
 const caseStudies = [
   "Estratégia de Conteúdo",
@@ -67,53 +45,83 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { theme, toggleTheme } = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = ["INÍCIO", "SOBRE", "ESPECIALIDADES", "CASES", "CONTATO"];
 
   return (
     <div className="min-h-screen bg-background font-sans text-foreground selection:bg-lavender/30 selection:text-foreground">
-      <header className="sticky top-0 z-50 flex flex-wrap items-center justify-between gap-3 border-b-2 border-border bg-background/80 px-4 py-3 backdrop-blur-md sm:px-6 md:px-12">
-        <div className="flex items-center gap-3 sm:gap-4">
-          <button
-            onClick={toggleTheme}
-            className="rounded-full p-2 transition-colors hover:bg-accent"
-            aria-label="Alternar tema"
-          >
-            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-border bg-lavender font-black text-white shadow-brutalist sm:h-12 sm:w-12"
-          >
-            MC
-          </motion.div>
-          <div className="flex flex-col">
-            <span className="text-xs font-black uppercase tracking-tight sm:text-sm">
-              @megchaluppe
-            </span>
-            <span className="text-[9px] font-black uppercase tracking-[0.18em] text-muted-foreground leading-none sm:text-[10px]">
-              PORTFÓLIO
-            </span>
-          </div>
-        </div>
-        <nav className="hidden gap-6 text-[10px] font-black uppercase tracking-widest md:flex lg:gap-8">
-          {["INÍCIO", "SOBRE", "ESPECIALIDADES", "CASES", "CONTATO"].map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="relative transition-colors hover:text-lavender group"
+      <header className="premium-shell sticky top-0 z-50 border-b-2 border-border bg-background/80 px-4 py-3 sm:px-6 md:px-12">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              onClick={toggleTheme}
+              className="rounded-full p-2 transition-colors hover:bg-accent"
+              aria-label="Alternar tema"
             >
-              {link}
-              <span className="absolute -bottom-1 left-0 h-0.5 w-0 scale-x-0 bg-lavender transition-transform duration-300 group-hover:w-full group-hover:scale-x-100" />
-            </a>
-          ))}
-        </nav>
+              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-border bg-lavender font-black text-white shadow-[0_12px_24px_rgba(197,120,211,0.34)] sm:h-12 sm:w-12"
+            >
+              MC
+            </motion.div>
+            <div className="flex flex-col">
+              <span className="text-xs font-black uppercase tracking-tight sm:text-sm">
+                @megchaluppe
+              </span>
+              <span className="text-[9px] font-black uppercase tracking-[0.18em] text-muted-foreground leading-none sm:text-[10px]">
+                PORTFÓLIO
+              </span>
+            </div>
+          </div>
+
+          <nav className="hidden items-center gap-6 text-[10px] font-black uppercase tracking-widest md:flex lg:gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                className="group relative transition-colors hover:text-lavender"
+              >
+                {link}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 scale-x-0 bg-lavender transition-transform duration-300 group-hover:w-full group-hover:scale-x-100" />
+              </a>
+            ))}
+          </nav>
+
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            className="inline-flex items-center justify-center rounded-full border-2 border-black bg-white p-2 shadow-brutalist transition-transform hover:scale-[1.02] md:hidden"
+            aria-label="Abrir menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
+
+        {mobileMenuOpen && (
+          <nav className="mt-3 flex flex-col gap-3 border-t-2 border-border pt-3 md:hidden">
+            {navLinks.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-xs font-black uppercase tracking-[0.2em] text-foreground transition-colors hover:text-lavender"
+              >
+                {link}
+              </a>
+            ))}
+          </nav>
+        )}
       </header>
 
       <section
         id="início"
-        className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-8 md:px-24 md:py-20"
+        className="relative flex min-h-[82vh] flex-col items-center justify-center overflow-hidden px-4 py-12 sm:px-8 md:min-h-[90vh] md:px-24 md:py-20"
       >
-        <div className="relative z-10 flex flex-col items-center gap-8 md:gap-12">
-          {/* Floating Elements with refined animations */}
+        <div className="relative z-10 flex w-full max-w-6xl flex-col items-center gap-8 md:gap-12">
           <motion.div
             animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
@@ -129,12 +137,12 @@ function Index() {
             <Plus size={64} className="text-black/10" />
           </motion.div>
 
-          <div className="group relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px]">
+          <div className="group relative w-full max-w-[260px] sm:max-w-[340px] md:max-w-[450px]">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative z-10 overflow-hidden border-2 border-black bg-cream shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-all duration-500 group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+              className="relative z-10 overflow-hidden border-2 border-black bg-cream shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-500 group-hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]"
             >
               <img
                 src={megPhoto}
@@ -152,9 +160,9 @@ function Index() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="inline-block border-2 border-black bg-lavender px-4 py-3 shadow-brutalist sm:px-6 sm:py-4 md:px-8"
+              className="inline-block border-2 border-black bg-lavender px-4 py-3 shadow-[0_18px_0_rgba(0,0,0,0.9)] sm:px-6 sm:py-4 md:px-8"
             >
-              <h1 className="text-2xl font-black uppercase leading-tight text-white sm:text-4xl md:text-6xl lg:text-7xl">
+              <h1 className="text-2xl font-black uppercase leading-[0.9] tracking-[-0.06em] text-white sm:text-3xl md:text-5xl lg:text-7xl">
                 Mariana Chaluppe (Meg)
               </h1>
             </motion.div>
@@ -163,16 +171,15 @@ function Index() {
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="mt-6 max-w-2xl text-[10px] font-black uppercase tracking-[0.18em] text-black/60 sm:text-xs md:mt-8 md:text-sm"
+              className="premium-label mt-6 max-w-xl text-[10px] font-black text-black/60 sm:text-xs md:mt-8 md:text-sm"
             >
               Comunicação Estratégica • Jornalismo • Conteúdo • Marca
             </motion.p>
           </div>
         </div>
 
-        {/* Background Grid Pattern */}
         <div
-          className="absolute inset-0 -z-0 opacity-[0.03] pointer-events-none"
+          className="pointer-events-none absolute inset-0 -z-0 opacity-[0.03]"
           style={{
             backgroundImage: "radial-gradient(#000 1px, transparent 1px)",
             backgroundSize: "32px 32px",
@@ -180,20 +187,20 @@ function Index() {
         />
       </section>
 
-      <section id="sobre" className="bg-cream/30 px-8 py-24 md:px-24">
+      <section id="sobre" className="bg-cream/30 px-4 py-12 sm:px-6 md:px-24 md:py-24">
         <div className="mx-auto max-w-5xl">
-          <div className="relative border-2 border-black bg-white p-12 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)]">
-            <div className="absolute -top-6 -left-6 border-2 border-black bg-lavender px-6 py-2 text-xl font-black text-white shadow-brutalist">
+          <div className="premium-panel relative border-2 border-black bg-white/90 p-5 sm:p-8 md:p-12">
+            <div className="absolute -top-5 -left-5 border-2 border-black bg-lavender px-3 py-2 text-xs font-black text-white shadow-brutalist sm:-top-6 sm:-left-6 sm:px-6 sm:text-xl">
               SOBRE A MEG
             </div>
-            <div className="mt-8 grid gap-12 md:grid-cols-[1fr_2fr]">
+            <div className="mt-10 grid gap-8 md:mt-8 md:grid-cols-[1fr_2fr] md:gap-12">
               <div className="flex flex-col gap-4">
-                <div className="h-2 w-20 bg-lavender" />
-                <h3 className="text-3xl font-black leading-tight uppercase">
+                <div className="h-2 w-20 rounded-full bg-lavender" />
+                <h3 className="text-2xl font-black uppercase leading-[1.02] tracking-[-0.05em] sm:text-3xl">
                   Comunicação que conecta pessoas, marcas e ideias.
                 </h3>
               </div>
-              <div className="text-xl font-medium leading-relaxed text-black/80">
+              <div className="text-base font-medium leading-relaxed text-black/80 sm:text-lg md:text-xl">
                 <p className="whitespace-pre-line">
                   Olá, sou a Mariana, mas pode me chamar de Meg.
                   {"\n\n"}
@@ -212,104 +219,126 @@ function Index() {
           </div>
         </div>
       </section>
-      <section id="especialidades" className="px-8 py-24 md:px-24">
-        <div className="mb-16 flex items-center justify-between">
-          <h2 className="text-4xl font-black uppercase tracking-tighter md:text-6xl">
+
+      <section id="especialidades" className="px-4 py-12 sm:px-6 md:px-24 md:py-24">
+        <div className="mb-8 flex items-center justify-between md:mb-16">
+          <h2 className="text-3xl font-black uppercase tracking-tighter sm:text-4xl md:text-6xl">
             Especialidades
           </h2>
-          <div className="hidden h-0.5 flex-1 bg-black/10 mx-12 md:block" />
+          <div className="mx-6 hidden h-0.5 flex-1 bg-black/10 md:block" />
         </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
           {specialtyCards.map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -8 }}
-              className={`group relative border-2 border-black p-8 shadow-brutalist transition-all hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] ${item.bg} ${item.color}`}
-            >
-              <item.icon size={48} className="mb-6 transition-transform group-hover:scale-110" />
-              <h3 className="text-lg font-black leading-tight uppercase tracking-tight">
-                {item.title}
-              </h3>
-              <div className="mt-4 flex items-center text-xs font-black uppercase opacity-0 transition-opacity group-hover:opacity-100">
-                Ver mais <ChevronRight size={14} className="ml-1" />
-              </div>
-            </motion.div>
+            <Link key={item.slug} to={`/especialidades/${item.slug}`} className="block">
+              <motion.div
+                whileHover={{ y: -8, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                className="premium-card group relative h-full border-2 border-black p-6 sm:p-8"
+                style={{
+                  backgroundColor: item.backgroundColor,
+                  color: item.textColor,
+                  boxShadow:
+                    item.backgroundColor === "#ffffff"
+                      ? "0 18px 30px rgba(0,0,0,0.06)"
+                      : "0 18px 30px rgba(0,0,0,0.12)",
+                }}
+              >
+                <div className="mb-5 flex items-center justify-between">
+                  <item.icon
+                    size={40}
+                    className="transition-transform duration-300 group-hover:scale-110 sm:size-[48px]"
+                  />
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-current/80 bg-black/5 text-current">
+                    <ChevronRight size={14} />
+                  </span>
+                </div>
+                <h3 className="text-base font-black uppercase leading-tight tracking-[-0.04em] sm:text-lg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed opacity-80">{item.summary}</p>
+                <div className="mt-5 flex items-center text-[10px] font-black uppercase opacity-100 transition-opacity sm:text-xs">
+                  Ver mais <ChevronRight size={14} className="ml-1" />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section id="cases" className="bg-black px-8 py-24 text-white md:px-24">
-        <div className="mb-16 flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.4em] text-lavender">
-              Trabalhos Recentes
-            </span>
-            <h2 className="mt-2 text-4xl font-black uppercase tracking-tighter md:text-6xl">
-              Cases que marcaram a trajetória
-            </h2>
-          </div>
-          <p className="max-w-xs text-sm font-medium text-white/60">
-            Estratégias de comunicação, conteúdo e relacionamento que ajudam marcas a ganharem
-            presença e relevância.
-          </p>
-        </div>
-
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((title, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group border-2 border-white/20 bg-white/5 transition-colors hover:border-lavender"
-            >
-              <div className="relative aspect-video overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-black/40 mix-blend-multiply transition-opacity group-hover:opacity-20" />
-              </div>
-              <div className="p-6">
-                <span className="inline-block bg-lavender px-3 py-1 text-[10px] font-black text-white mb-4 uppercase tracking-widest">
-                  {title}
-                </span>
-                <p className="text-sm font-medium leading-relaxed text-white/70">
-                  Soluções de comunicação com foco em narrativa, clareza, visibilidade e conexão com
-                  o público certo.
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      <section id="contato" className="px-8 py-24 md:px-24">
-        <div className="mx-auto max-w-4xl">
-          <div className="grid gap-16 md:grid-cols-2">
+      <section id="cases" className="bg-black px-4 py-12 text-white sm:px-6 md:px-24 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-col items-start gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
             <div>
-              <h2 className="text-4xl font-black uppercase tracking-tighter md:text-6xl">
+              <span className="premium-label text-[10px] font-black text-lavender sm:text-xs">
+                Trabalhos Recentes
+              </span>
+              <h2 className="mt-2 text-3xl font-black uppercase tracking-[-0.06em] sm:text-4xl md:text-6xl">
+                Cases que marcaram a trajetória
+              </h2>
+            </div>
+            <p className="max-w-xs text-sm font-medium text-white/60">
+              Estratégias de comunicação, conteúdo e relacionamento que ajudam marcas a ganharem
+              presença e relevância.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {caseStudies.map((title, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="premium-card group border-2 border-white/20 bg-white/5 hover:border-lavender"
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/40 mix-blend-multiply transition-opacity group-hover:opacity-20" />
+                </div>
+                <div className="p-4 sm:p-6">
+                  <span className="premium-label mb-4 inline-block bg-lavender px-3 py-1 text-[10px] font-black text-white">
+                    {title}
+                  </span>
+                  <p className="text-sm font-medium leading-relaxed text-white/70">
+                    Soluções de comunicação com foco em narrativa, clareza, visibilidade e conexão
+                    com o público certo.
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" className="px-4 py-12 sm:px-6 md:px-24 md:py-24">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid gap-8 md:grid-cols-2 md:gap-16">
+            <div>
+              <h2 className="text-3xl font-black uppercase tracking-[-0.06em] sm:text-4xl md:text-6xl">
                 Vamos criar algo com impacto?
               </h2>
-              <p className="mt-6 text-lg font-medium text-black/60">
+              <p className="mt-6 text-base font-medium text-black/60 sm:text-lg">
                 Estou aberta a novos projetos, colaborações, palestras e consultorias em comunicação
                 estratégica.
               </p>
 
-              <div className="mt-12 flex gap-4">
-                {socialLinks.map(({ icon: Icon, href, label }, i) => (
+              <div className="mt-8 flex gap-4 sm:mt-12">
+                {socialLinks.map(({ icon: Icon, href, label }) => (
                   <motion.a
                     key={label}
                     href={href}
                     aria-label={label}
                     whileHover={{ y: -4, scale: 1.1 }}
-                    className="flex h-14 w-14 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist transition-colors hover:bg-black"
+                    className="flex h-12 w-12 items-center justify-center border-2 border-black bg-lavender text-white shadow-brutalist transition-colors hover:bg-black sm:h-14 sm:w-14"
                   >
-                    <Icon size={24} />
+                    <Icon size={22} className="sm:size-[24px]" />
                   </motion.a>
                 ))}
               </div>
             </div>
 
-            <div className="border-2 border-black bg-cream p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)]">
+            <div className="premium-panel border-2 border-black bg-cream p-5 sm:p-8">
               <form className="flex flex-col gap-6">
                 <div className="group relative">
                   <input
@@ -328,13 +357,13 @@ function Index() {
                 <div className="group relative">
                   <textarea
                     placeholder="Como posso ajudar?"
-                    className="h-32 w-full resize-none border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30"
+                    className="h-28 w-full resize-none border-b-2 border-black bg-transparent py-2 text-sm font-bold outline-none placeholder:text-black/30 sm:h-32"
                   />
                   <div className="absolute bottom-0 h-0.5 w-0 bg-lavender transition-all duration-300 group-focus-within:w-full" />
                 </div>
                 <motion.button
                   whileTap={{ scale: 0.98 }}
-                  className="mt-4 border-2 border-black bg-black py-4 text-xs font-black uppercase tracking-[0.2em] text-white shadow-brutalist transition-all hover:bg-lavender hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                  className="premium-label mt-2 border-2 border-black bg-black py-4 text-[10px] text-white shadow-brutalist transition-all hover:bg-lavender hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] sm:text-xs"
                 >
                   Enviar mensagem
                 </motion.button>
@@ -344,13 +373,15 @@ function Index() {
         </div>
       </section>
 
-      <footer className="border-t-2 border-black bg-white px-8 py-12 md:px-24">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+      <footer className="border-t-2 border-black bg-white px-4 py-10 sm:px-6 md:px-24 md:py-12">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-4">
             <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-black bg-lavender font-black text-white">
               MC
             </div>
-            <span className="text-xs font-black uppercase tracking-widest">Mariana Chaluppe</span>
+            <span className="text-[10px] font-black uppercase tracking-widest sm:text-xs">
+              Mariana Chaluppe
+            </span>
           </div>
 
           <div className="flex gap-2">
@@ -360,7 +391,7 @@ function Index() {
           </div>
 
           <div className="text-center md:text-right">
-            <p className="text-[10px] font-black uppercase tracking-widest text-black/40">
+            <p className="text-[9px] font-black uppercase tracking-widest text-black/40 sm:text-[10px]">
               © 2026 • Mariana Chaluppe • Comunicação Estratégica
             </p>
           </div>
