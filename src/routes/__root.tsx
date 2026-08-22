@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "../lib/theme-provider";
 import {
   Outlet,
@@ -124,6 +125,7 @@ function RootComponent() {
       <ThemeProvider>
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
+        <Analytics />
       </ThemeProvider>
     </QueryClientProvider>
   );
